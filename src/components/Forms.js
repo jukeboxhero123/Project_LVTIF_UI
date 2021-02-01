@@ -54,7 +54,7 @@ function Forms(props) {
                 state.forms.map((form) => {
                     return <div style={{ border: '1px solid black', padding: '8px', margin: '8px' }}>
                         <p>{form.title}</p>
-                        <p>Share Link: {`${process.env.URL || 'localhost:3000'}/forms/${form.id}/responses/new`}</p>
+                        <p>Share Link: {`https://project-lvtif.herokuapp.com/forms/${form.id}/responses/new`}</p>
                         <button onClick={() => redirect(`/forms/${form.id}/questions`)}>Edit</button> <button onClick={() => redirect(`/forms/${form.id}/responses`)}>See Responses</button>
                     </div>
                 })
