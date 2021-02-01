@@ -10,7 +10,7 @@ export default function Responses(props) {
 
     useEffect(() => {
         axios
-            .get(`http://127.0.0.1:8000/api/forms/${props.match.params.id}/questions`)
+            .get(`${process.env.API_URL || 'http://127.0.0.1:8000'}/api/forms/${props.match.params.id}/questions`)
             .then((response) => {
                 response.data.questions.sort((x, y) => {
                     if (x.order < y.order) {
@@ -24,7 +24,7 @@ export default function Responses(props) {
                 updateState({ ...response.data });
             })
         axios
-            .get(`http://127.0.0.1:8000/api/forms/${props.match.params.id}/responses`)
+            .get(`${process.env.API_URL || 'http://127.0.0.1:8000'}/api/forms/${props.match.params.id}/responses`)
             .then(response => {
                 let data = [];
                 response.data.map((res) => {
