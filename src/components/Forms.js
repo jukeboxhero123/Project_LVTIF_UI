@@ -10,7 +10,7 @@ function Forms(props) {
     const history = props.history;
     useEffect(() => {
         axios
-            .get(`${process.env.API_URL || 'http://127.0.0.1:8000'}/api/forms`)
+            .get(`https://project-lvtif.herokuapp.com/api/forms`)
             .then((response) => {
                 updateState({...state, forms: response.data})
             })
@@ -27,7 +27,7 @@ function Forms(props) {
                 title: formState
             };
             axios
-                .post(`${process.env.API_URL || 'http://127.0.0.1:8000'}/api/forms`, params, {
+                .post(`https://project-lvtif.herokuapp.com/api/forms`, params, {
                     headers: {
                         'Content-Type': 'application/json'
                     }

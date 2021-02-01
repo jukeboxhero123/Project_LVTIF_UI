@@ -19,7 +19,7 @@ export default function Questions (props) {
 
     useEffect(() => {
         axios
-        .get(`${process.env.API_URL || 'http://127.0.0.1:8000'}/api${props.location.pathname}`)
+        .get(`https://project-lvtif.herokuapp.com/api${props.location.pathname}`)
         .then((response) => {
             updateState({...state, ...response.data})
         })
@@ -45,7 +45,7 @@ export default function Questions (props) {
             }
 
             axios
-                .post(`${process.env.API_URL || 'http://127.0.0.1:8000'}/api${props.location.pathname}`, params, {
+                .post(`https://project-lvtif.herokuapp.com/api${props.location.pathname}`, params, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
