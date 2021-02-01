@@ -10,7 +10,7 @@ function Forms(props) {
     const history = props.history;
     useEffect(() => {
         axios
-            .get(`https://project-lvtif.herokuapp.com/api/forms`)
+            .get("http://127.0.0.1:8000/api/forms")
             .then((response) => {
                 updateState({...state, forms: response.data})
             })
@@ -27,7 +27,7 @@ function Forms(props) {
                 title: formState
             };
             axios
-                .post(`https://project-lvtif.herokuapp.com/api/forms`, params, {
+                .post("http://127.0.0.1:8000/api/forms", params, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -54,7 +54,7 @@ function Forms(props) {
                 state.forms.map((form) => {
                     return <div style={{ border: '1px solid black', padding: '8px', margin: '8px' }}>
                         <p>{form.title}</p>
-                        <p>Share Link: {`https://project-lvtif-ui.herokuapp.com/forms/${form.id}/responses/new`}</p>
+                        <p>Share Link: {`localhost:3000/forms/${form.id}/responses/new`}</p>
                         <button onClick={() => redirect(`/forms/${form.id}/questions`)}>Edit</button> <button onClick={() => redirect(`/forms/${form.id}/responses`)}>See Responses</button>
                     </div>
                 })

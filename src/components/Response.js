@@ -10,7 +10,7 @@ export default function Response(props) {
     const history = props.history;
     useEffect(() => {
         axios
-            .get(`https://project-lvtif.herokuapp.com/api/forms/${props.match.params.id}/questions`)
+            .get(`http://127.0.0.1:8000/api/forms/${props.match.params.id}/questions`)
             .then((response) => {
                 response.data.questions.sort((x, y) => {
                     if (x.order < y.order) {
@@ -36,7 +36,7 @@ export default function Response(props) {
             answers 
         }
         axios
-            .post(`https://project-lvtif.herokuapp.com/api${props.location.pathname}`, params, {
+            .post(`http://127.0.0.1:8000/api${props.location.pathname}`, params, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
